@@ -1,0 +1,1 @@
+Platinium Group static V8. Production URL slugs preserved: /technology/, /references/, /the-group/, /gootickets/, /gpexperiences/, /travel/, /careers/, /contact/, /email-marketing-specialist/, /travel-concierge-agent-internship/. Serve from the domain root (root-relative asset paths are used). GA4: G-PTPB17HDN8.
