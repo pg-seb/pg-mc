@@ -15,3 +15,6 @@
 .crm .intro>p,.crm .cycle p{color:rgba(255,255,255,.82)!important}
 .crm .cycle article{border-color:rgba(255,255,255,.38)}
 .crm .cycle h3{color:#fff}
+
+/* Shared footer must keep the same layout on Technology too. */
+.footer-v6{display:block}
