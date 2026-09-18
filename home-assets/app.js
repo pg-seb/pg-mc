@@ -4,5 +4,5 @@ function go(i,user=false){slides[current].classList.remove('active');dots[curren
 function restart(){clearInterval(timer);timer=setInterval(()=>go(current+1),6500)}dots[0].classList.add('active');restart();document.querySelector('.next').onclick=()=>go(current+1,true);document.querySelector('.prev').onclick=()=>go(current-1,true);
 document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(current+1,true);if(e.key==='ArrowLeft')go(current-1,true)});
 let sx=0;const slider=document.querySelector('.hero-slider');slider.addEventListener('touchstart',e=>sx=e.touches[0].clientX,{passive:true});slider.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>45)go(current+(dx<0?1:-1),true)},{passive:true});
-const toggle=document.querySelector('.menu-toggle'),nav=document.querySelector('.main-nav');toggle.onclick=()=>{const open=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',open)};
+
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.18});document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
