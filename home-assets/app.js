@@ -6,3 +6,25 @@ document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(current+1,tru
 let sx=0;const slider=document.querySelector('.hero-slider');slider.addEventListener('touchstart',e=>sx=e.touches[0].clientX,{passive:true});slider.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>45)go(current+(dx<0?1:-1),true)},{passive:true});
 
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.18});document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+
+// Home mobile navigation — explicit controller.
+(() => {
+  const button = document.querySelector('.site-header.v6 .menu-toggle');
+  const nav = document.querySelector('.site-header.v6 .main-nav');
+  if (!button || !nav) return;
+
+  button.addEventListener('click', (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    const isOpen = nav.classList.toggle('open');
+    button.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  nav.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('open');
+      button.setAttribute('aria-expanded', 'false');
+    });
+  });
+})();
